@@ -36,7 +36,7 @@ Public Class frmMain
             e_mail.IsBodyHtml = False
             e_mail.Body = txtMessage.Text
             Smtp_Server.Send(e_mail)
-            MsgBox("Email Sent!")
+            MsgBox("Quotation email Sent!")
 
 
         Catch ex As Exception
@@ -68,15 +68,52 @@ Public Class frmMain
 
     Private Sub BtnPrice_Click(sender As Object, e As EventArgs) Handles btnPrice.Click
 
-        Dim appXL As Excel.Application
-        Dim wbXl As Excel.Workbook
-        Dim shXL As Excel.Worksheet
-        Dim raXL As Excel.Range
+        Dim xlFileName As String = txtFileName.Text
+        Dim xlApp As Excel.Application = New Excel.Application()
+        Dim xlWB As Excel.Workbook = xlApp.Workbooks.Open(xlFileName)
+        Dim Sheet1 As Excel.Worksheet = xlWB.Sheets("Sheet")
+        Dim currentDate As Date = Date.Today
 
-        ' Start Excel and get Application object
-        appXL = CreateObject("Excel.Application")
-        appXL.Visible = True
 
+        ' Make Excel Visible
+        xlApp.Visible = True
+
+        ' Add a new Excel Worksheet
+        Dim Sheet2 As Excel.Worksheet = xlWB.Worksheets.Add
+        Sheet2 = xlWB.ActiveSheet
+
+        ' Add table headers
+        Dim Headers() As String = {"Item No.", "Description", "Quantity", "Sale Unit Price", "Sale Price", "Sale Used Price", "Used Price", "Rental Unit Price", "Rental Price", "Weight (lbs.)"}
+        For i As Integer = 1 To 10
+            Sheet2.Cells(1, i) = Headers(i - 1)
+        Next
+
+                
+        'Get the last row of the spreadsheet
+        Dim lastRow As String = Sheet1.UsedRange.Rows.Count
+
+        For j As Integer = 12 To lastRow - 4
+            ' Create Item Nos.
+            Sheet2.Cells(j - 10, 1) = (j - 11)
+            ' Copy Descriptions
+            Sheet2.Cells(j - 10, 2) = Sheet1.Cells(j, 4)
+            ' Copy Quantities
+            Sheet2.Cells(j - 10, 3) = Sheet1.Cells(j, 10)
+            ' Copy weight in lbs.
+            Sheet2.Cells(j - 10, 10) = Sheet1.Cells(j, 13)
+        Next
+
+        Dim newFileName As String = xlFileName.Substring(0, xlFileName.Length - 5)
+        'Save new workbook
+        xlWB.SaveAs(newFileName & " - " & Format(currentDate, "yyyy-MM-dd") & ".xlsx")
+
+        ' Release object references
+        Sheet1 = Nothing
+        xlWB = Nothing
+        xlApp.Quit()
+        xlApp = Nothing
+        xlFileName = Nothing
+        newFileName = Nothing
 
     End Sub
 End Class
