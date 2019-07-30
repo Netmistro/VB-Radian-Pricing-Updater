@@ -35,6 +35,7 @@ Partial Class frmMain
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnOpen = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtFileName
@@ -157,11 +158,22 @@ Partial Class frmMain
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Coded by: Arnold Bradshaw"
         '
+        'btnOpen
+        '
+        Me.btnOpen.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOpen.Location = New System.Drawing.Point(300, 119)
+        Me.btnOpen.Name = "btnOpen"
+        Me.btnOpen.Size = New System.Drawing.Size(97, 38)
+        Me.btnOpen.TabIndex = 12
+        Me.btnOpen.Text = "&Open File"
+        Me.btnOpen.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(494, 458)
+        Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblHeader)
         Me.Controls.Add(Me.btnExit)
@@ -194,4 +206,5 @@ Partial Class frmMain
     Public WithEvents lblHeader As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnOpen As Button
 End Class
