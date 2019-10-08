@@ -1,56 +1,44 @@
-﻿Imports System.Net.Mail
+﻿Imports Microsoft.VisualBasic
+Imports System.Net.Mail
+Imports System.Configuration
+Imports System.IO
+Imports System.Net
 Imports Excel = Microsoft.Office.Interop.Excel
+Imports Word = Microsoft.Office.Interop.Word
 
-Public Class frmMain
-    Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+Public Class MainClass
 
-        Me.Close()
-
+    Sub Close()
+        frmPricing.Close()
     End Sub
-
-    Private Sub TxtTo_TextChanged(sender As Object, e As EventArgs) Handles txtTo.TextChanged
-
-    End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        ' Set focus on the first textbox
-        txtFileName.Select()
-
-        'Centre window on load
-        Dim screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
-        Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
-        Dim formNewLeft As Integer = Val(Val(screenWidth) / Val(2)) - Val(Val(Me.Width) / Val(2))
-        Dim formNewTop As Integer = Val(Val(screenHeight) / Val(2)) - Val(Val(Me.Height) / Val(2))
-        Me.Left = formNewLeft
-        Me.Top = formNewTop
-
+    Sub LoadForm()
+        'Set focus on the first textbox
+        frmPricing.txtFileName.Select()
+        'Centre Form
+        CentreForm()
         'Load Default email address
-        txtTo.Text = "training@rhatt.com"
-
+        frmPricing.txtTo.Text = "training@rhatt.com"
     End Sub
-
-    Private Sub BtnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
-
+    Sub SendMail()
         Try
             Dim Smtp_Server As New SmtpClient
             Dim e_mail As New MailMessage()
             Smtp_Server.UseDefaultCredentials = False
-            Smtp_Server.Credentials = New Net.NetworkCredential("training@rhatt.com", "Radian123*")
+            Smtp_Server.Credentials = New Net.NetworkCredential("arnold.bradshaw@rhatt.com", "Radian1234*")
             Smtp_Server.Port = 587
             Smtp_Server.EnableSsl = True
             Smtp_Server.Host = "smtp.gmail.com"
 
             e_mail = New MailMessage()
             e_mail.From = New MailAddress("training@rhatt.com")
-            e_mail.To.Add(txtTo.Text)
+            e_mail.To.Add(frmPricing.txtTo.Text)
             e_mail.Bcc.Add("arnold.bradshaw@rhatt.com")
             e_mail.Subject = "Scaffold Material Pricing"
-            e_mail.Attachments.Add(New Attachment(txtAttachment.Text))
+            e_mail.Attachments.Add(New Attachment(frmPricing.txtAttachment.Text))
             e_mail.IsBodyHtml = False
-            e_mail.Body = txtMessage.Text & vbCr & vbCr & "RADIAN H.A. Limited"
+            e_mail.Body = frmPricing.txtMessage.Text & vbCr & vbCr & "RADIAN H.A. Limited"
 
-            If txtTo.Text = "" Or txtMessage.Text = "" Or txtAttachment.Text = "" Then
+            If frmPricing.txtTo.Text = "" Or frmPricing.txtMessage.Text = "" Or frmPricing.txtAttachment.Text = "" Then
 
                 MessageBox.Show("Please fill out all fields!", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Hand)
             Else
@@ -60,40 +48,17 @@ Public Class frmMain
 
         Catch ex As Exception
 
-            MessageBox.Show("Error sending email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show(ex.Message + "Error sending email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End Try
     End Sub
-
-    Private Sub BtnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-
-        Dim fd As OpenFileDialog = New OpenFileDialog()
-        Dim strFileName As String
-
-        fd.Title = "RADIAN Material Pricing"
-        fd.InitialDirectory = "C:\"
-
-        fd.Filter = "Excel Files|*.xlsx"
-        fd.FilterIndex = 2
-        fd.RestoreDirectory = True
-
-        If fd.ShowDialog() = DialogResult.OK Then
-            strFileName = fd.FileName
-            txtFileName.Text = strFileName
-
-        End If
-        ' Dispose of the instance
-        fd.Dispose()
-    End Sub
-
-    Private Sub BtnPrice_Click(sender As Object, e As EventArgs) Handles btnPrice.Click
-
-        If txtFileName.Text = "" Then
+    Sub PriceItems()
+        If frmPricing.txtFileName.Text = "" Then
 
             MessageBox.Show("Please select a file!", "Error selecting file", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
 
-            Dim xlFileName As String = txtFileName.Text
+            Dim xlFileName As String = frmPricing.txtFileName.Text
             Dim xlApp As Excel.Application = New Excel.Application()
             Dim xlWB As Excel.Workbook = xlApp.Workbooks.Open(xlFileName)
             Dim Sheet1 As Excel.Worksheet = xlWB.Sheets("Sheet")
@@ -309,7 +274,6 @@ Public Class frmMain
                 MessageBox.Show("There was an error saving your file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
-
             ' Release object references
             Sheet1 = Nothing
             Sheet2 = Nothing
@@ -319,21 +283,27 @@ Public Class frmMain
             xlFileName = Nothing
 
         End If
-
-
     End Sub
+    Sub BrowseFiles()
+        Dim fd As OpenFileDialog = New OpenFileDialog()
+        Dim strFileName As String
 
-    Private Sub BtnOpen_Click(sender As Object, e As EventArgs)
+        fd.Title = "RADIAN Material Pricing"
+        fd.InitialDirectory = "C:\"
 
-        'Open priced file
+        fd.Filter = "Excel Files|*.xlsx"
+        fd.FilterIndex = 2
+        fd.RestoreDirectory = True
 
+        If fd.ShowDialog() = DialogResult.OK Then
+            strFileName = fd.FileName
+            frmPricing.txtFileName.Text = strFileName
+
+        End If
+        ' Dispose of the instance
+        fd.Dispose()
     End Sub
-
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtAttachment.TextChanged
-
-    End Sub
-
-    Private Sub BtnAttach_Click(sender As Object, e As EventArgs) Handles btnAttach.Click
+    Sub AttachFiles()
         Dim fd As OpenFileDialog = New OpenFileDialog()
         Dim strFileName As String
 
@@ -346,10 +316,93 @@ Public Class frmMain
 
         If fd.ShowDialog() = DialogResult.OK Then
             strFileName = fd.FileName
-            txtAttachment.Text = strFileName
+            frmPricing.txtAttachment.Text = strFileName
 
         End If
         ' Dispose of the instance
         fd.Dispose()
+    End Sub
+    Sub GenerateQuote()
+        Dim oWord As Word.Application
+        Dim oDoc As Word.Document
+        'Dim oTable As Word.Table
+        Dim oPara1, oPara2, oPara3 As Word.Paragraph
+        Dim oPara4 As Word.Paragraph
+        'Dim oRng As Word.Range
+
+        'Start Word
+        oWord = CreateObject("Word.Application")
+        oWord.Visible = True
+        oDoc = oWord.Documents.Add
+
+        'Insert a paragraph at the beginning of the document
+        oPara1 = oDoc.Content.Paragraphs.Add
+        With oPara1.Range.Font
+            .Name = "Times New Roman"
+            .Size = 12
+        End With
+        With oPara1.Range
+            .Text = "Attorney: A.J. Bhajan & Company" & vbCrLf & "Banker: Scotia Bank Limited" & vbCrLf
+        End With
+        oPara1.Range.InsertParagraphAfter()
+
+        'Insert another paragraph
+        oPara2 = oDoc.Content.Paragraphs.Add
+        With oPara2.Range.Font
+            .Name = "Times New Roman"
+            .Size = 12
+        End With
+        With oPara2.Range
+            .Text = "REF#: ####/ASB" & vbCrLf & Format(Date.Now(), "MMMM dd, yyyy") & vbCrLf
+        End With
+        '24 pt spacing after paragraph
+        oPara2.Range.InsertParagraphAfter()
+
+        'Insert another paragraph
+        oPara3 = oDoc.Content.Paragraphs.Add
+        With oPara3.Range.Font
+            .Name = "Times New Roman"
+            .Size = 12
+            .Bold = True
+        End With
+        With oPara3.Range
+            .Text = "COMPANY NAME" + vbCrLf + "Company Address," + vbCrLf + "PORT-OF-SPAIN" + vbCr + vbCr +
+            "RE: SALE/RENTAL OF SCAFFOLD MATERIALS" + vbCrLf +
+            "ATTENTION: " + vbCrLf + vbCrLf
+        End With
+        oPara3.Range.InsertParagraphAfter()
+
+        oPara4 = oDoc.Content.Paragraphs.Add
+        With oPara4.Range.Font
+            .Name = "Times New Roman"
+            .Size = 12
+        End With
+        With oPara4.Range
+            .Text = "Dear Sir/Madam," & vbCrLf +
+            "Thank you for the opportunity to provide a quote on the SALE/RENTAL of the following Scaffolding items." + " " +
+            "Please see pricing below:" & vbCrLf +
+            "NOTE:" & vbCrLf +
+            "1) Quotation is valid for 30 days." & vbCrLf +
+            "2) All scaffold equipment and access products are in accordance with British Standards and OSHA." & vbCrLf +
+            "3) Should the above quote meet your approval, please follow with a Purchase Order and payment." & vbCrLf & vbCrLf +
+            "We thank you for your interest and look forward to your continued business." & vbCrLf + vbCrLf +
+            "Yours faithfully," & vbCrLf +
+            "RADIAN H.A. LTD" & vbCrLf & vbCrLf +
+            "........................................." + vbCrLf +
+            "Mrs. Alicia Singh-Biran" & vbCrLf +
+            "Quotation/ Training Coordinator" & vbCrLf
+        End With
+        oPara4.Range.InsertParagraphAfter()
+        MsgBox("Document Created!")
+
+    End Sub
+    Sub CentreForm()
+        'Centre window on load
+        Dim screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
+        Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
+        Dim formNewLeft As Integer = Val(Val(screenWidth) / Val(2)) - Val(Val(frmPricing.Width) / Val(2))
+        Dim formNewTop As Integer = Val(Val(screenHeight) / Val(2)) - Val(Val(frmPricing.Height) / Val(2))
+        frmPricing.Left = formNewLeft
+        frmPricing.Top = formNewTop
     End Sub
 End Class

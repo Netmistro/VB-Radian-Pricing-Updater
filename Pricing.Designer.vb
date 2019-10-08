@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmMain
+Partial Class frmPricing
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPricing))
         Me.txtFileName = New System.Windows.Forms.TextBox()
         Me.lblFileLocation = New System.Windows.Forms.Label()
         Me.btnBrowse = New System.Windows.Forms.Button()
@@ -41,13 +41,18 @@ Partial Class frmMain
         Me.txtAttachment = New System.Windows.Forms.TextBox()
         Me.btnAttach = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnQuote = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtFileName
         '
         Me.txtFileName.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFileName.Location = New System.Drawing.Point(19, 86)
+        Me.txtFileName.Location = New System.Drawing.Point(20, 44)
         Me.txtFileName.Multiline = True
         Me.txtFileName.Name = "txtFileName"
         Me.txtFileName.Size = New System.Drawing.Size(385, 42)
@@ -57,7 +62,7 @@ Partial Class frmMain
         '
         Me.lblFileLocation.AutoSize = True
         Me.lblFileLocation.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFileLocation.Location = New System.Drawing.Point(16, 70)
+        Me.lblFileLocation.Location = New System.Drawing.Point(20, 28)
         Me.lblFileLocation.Name = "lblFileLocation"
         Me.lblFileLocation.Size = New System.Drawing.Size(82, 16)
         Me.lblFileLocation.TabIndex = 1
@@ -65,9 +70,9 @@ Partial Class frmMain
         '
         'btnBrowse
         '
-        Me.btnBrowse.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnBrowse.BackColor = System.Drawing.Color.DarkOrange
         Me.btnBrowse.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBrowse.Location = New System.Drawing.Point(314, 147)
+        Me.btnBrowse.Location = New System.Drawing.Point(118, 92)
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.Size = New System.Drawing.Size(90, 35)
         Me.btnBrowse.TabIndex = 3
@@ -76,9 +81,9 @@ Partial Class frmMain
         '
         'btnPrice
         '
-        Me.btnPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnPrice.BackColor = System.Drawing.Color.DarkOrange
         Me.btnPrice.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrice.Location = New System.Drawing.Point(19, 147)
+        Me.btnPrice.Location = New System.Drawing.Point(20, 92)
         Me.btnPrice.Name = "btnPrice"
         Me.btnPrice.Size = New System.Drawing.Size(90, 35)
         Me.btnPrice.TabIndex = 2
@@ -89,7 +94,7 @@ Partial Class frmMain
         '
         Me.lblTo.AutoSize = True
         Me.lblTo.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTo.Location = New System.Drawing.Point(16, 210)
+        Me.lblTo.Location = New System.Drawing.Point(20, 19)
         Me.lblTo.Name = "lblTo"
         Me.lblTo.Size = New System.Drawing.Size(21, 16)
         Me.lblTo.TabIndex = 5
@@ -98,17 +103,17 @@ Partial Class frmMain
         'txtTo
         '
         Me.txtTo.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTo.Location = New System.Drawing.Point(19, 226)
+        Me.txtTo.Location = New System.Drawing.Point(20, 38)
         Me.txtTo.Multiline = True
         Me.txtTo.Name = "txtTo"
         Me.txtTo.Size = New System.Drawing.Size(263, 29)
-        Me.txtTo.TabIndex = 4
+        Me.txtTo.TabIndex = 5
         '
         'lblMessage
         '
         Me.lblMessage.AutoSize = True
         Me.lblMessage.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMessage.Location = New System.Drawing.Point(16, 397)
+        Me.lblMessage.Location = New System.Drawing.Point(20, 185)
         Me.lblMessage.Name = "lblMessage"
         Me.lblMessage.Size = New System.Drawing.Size(61, 16)
         Me.lblMessage.TabIndex = 7
@@ -117,28 +122,28 @@ Partial Class frmMain
         'txtMessage
         '
         Me.txtMessage.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMessage.Location = New System.Drawing.Point(19, 413)
+        Me.txtMessage.Location = New System.Drawing.Point(20, 201)
         Me.txtMessage.Multiline = True
         Me.txtMessage.Name = "txtMessage"
-        Me.txtMessage.Size = New System.Drawing.Size(385, 122)
-        Me.txtMessage.TabIndex = 7
+        Me.txtMessage.Size = New System.Drawing.Size(385, 150)
+        Me.txtMessage.TabIndex = 8
         '
         'btnExit
         '
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnExit.BackColor = System.Drawing.Color.Tomato
         Me.btnExit.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(19, 559)
+        Me.btnExit.Location = New System.Drawing.Point(118, 362)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(90, 35)
-        Me.btnExit.TabIndex = 8
+        Me.btnExit.TabIndex = 10
         Me.btnExit.Text = "E&xit"
         Me.btnExit.UseVisualStyleBackColor = False
         '
         'btnSend
         '
-        Me.btnSend.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnSend.BackColor = System.Drawing.Color.DarkKhaki
         Me.btnSend.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.Location = New System.Drawing.Point(120, 559)
+        Me.btnSend.Location = New System.Drawing.Point(20, 362)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(90, 35)
         Me.btnSend.TabIndex = 9
@@ -149,7 +154,7 @@ Partial Class frmMain
         '
         Me.lblHeader.AutoSize = True
         Me.lblHeader.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHeader.Location = New System.Drawing.Point(161, 23)
+        Me.lblHeader.Location = New System.Drawing.Point(122, 34)
         Me.lblHeader.Name = "lblHeader"
         Me.lblHeader.Size = New System.Drawing.Size(236, 22)
         Me.lblHeader.TabIndex = 10
@@ -163,17 +168,17 @@ Partial Class frmMain
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(360, 559)
+        Me.Label1.Location = New System.Drawing.Point(361, 365)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 14)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Ver. 1.0"
+        Me.Label1.Text = "Ver. 1.1"
         '
         'lblAuthor
         '
         Me.lblAuthor.AutoSize = True
         Me.lblAuthor.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAuthor.Location = New System.Drawing.Point(271, 573)
+        Me.lblAuthor.Location = New System.Drawing.Point(280, 383)
         Me.lblAuthor.Name = "lblAuthor"
         Me.lblAuthor.Size = New System.Drawing.Size(125, 14)
         Me.lblAuthor.TabIndex = 12
@@ -183,7 +188,7 @@ Partial Class frmMain
         '
         Me.lblAttachment.AutoSize = True
         Me.lblAttachment.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAttachment.Location = New System.Drawing.Point(16, 267)
+        Me.lblAttachment.Location = New System.Drawing.Point(20, 79)
         Me.lblAttachment.Name = "lblAttachment"
         Me.lblAttachment.Size = New System.Drawing.Size(75, 16)
         Me.lblAttachment.TabIndex = 13
@@ -192,20 +197,20 @@ Partial Class frmMain
         'txtAttachment
         '
         Me.txtAttachment.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAttachment.Location = New System.Drawing.Point(19, 283)
+        Me.txtAttachment.Location = New System.Drawing.Point(20, 95)
         Me.txtAttachment.Multiline = True
         Me.txtAttachment.Name = "txtAttachment"
         Me.txtAttachment.Size = New System.Drawing.Size(385, 42)
-        Me.txtAttachment.TabIndex = 5
+        Me.txtAttachment.TabIndex = 6
         '
         'btnAttach
         '
-        Me.btnAttach.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnAttach.BackColor = System.Drawing.Color.DarkKhaki
         Me.btnAttach.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAttach.Location = New System.Drawing.Point(19, 345)
+        Me.btnAttach.Location = New System.Drawing.Point(20, 143)
         Me.btnAttach.Name = "btnAttach"
         Me.btnAttach.Size = New System.Drawing.Size(90, 35)
-        Me.btnAttach.TabIndex = 6
+        Me.btnAttach.TabIndex = 7
         Me.btnAttach.Text = "&Attach"
         Me.btnAttach.UseVisualStyleBackColor = False
         '
@@ -214,40 +219,80 @@ Partial Class frmMain
         Me.PictureBox1.Image = Global.Scaffold_Pricing.My.Resources.Resources.radian_logo
         Me.PictureBox1.Location = New System.Drawing.Point(19, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(60, 48)
+        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 16
         Me.PictureBox1.TabStop = False
         '
-        'frmMain
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.PeachPuff
+        Me.GroupBox1.Controls.Add(Me.btnQuote)
+        Me.GroupBox1.Controls.Add(Me.txtFileName)
+        Me.GroupBox1.Controls.Add(Me.lblFileLocation)
+        Me.GroupBox1.Controls.Add(Me.btnBrowse)
+        Me.GroupBox1.Controls.Add(Me.btnPrice)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(19, 93)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(421, 146)
+        Me.GroupBox1.TabIndex = 17
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Pricing"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.PeachPuff
+        Me.GroupBox2.Controls.Add(Me.txtTo)
+        Me.GroupBox2.Controls.Add(Me.lblTo)
+        Me.GroupBox2.Controls.Add(Me.txtMessage)
+        Me.GroupBox2.Controls.Add(Me.lblAuthor)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.btnAttach)
+        Me.GroupBox2.Controls.Add(Me.lblMessage)
+        Me.GroupBox2.Controls.Add(Me.lblAttachment)
+        Me.GroupBox2.Controls.Add(Me.btnSend)
+        Me.GroupBox2.Controls.Add(Me.txtAttachment)
+        Me.GroupBox2.Controls.Add(Me.btnExit)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(19, 252)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(421, 407)
+        Me.GroupBox2.TabIndex = 18
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Email"
+        '
+        'btnQuote
+        '
+        Me.btnQuote.BackColor = System.Drawing.Color.DarkOrange
+        Me.btnQuote.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQuote.Location = New System.Drawing.Point(216, 92)
+        Me.btnQuote.Name = "btnQuote"
+        Me.btnQuote.Size = New System.Drawing.Size(90, 35)
+        Me.btnQuote.TabIndex = 4
+        Me.btnQuote.Text = "&Quote"
+        Me.btnQuote.UseVisualStyleBackColor = False
+        '
+        'frmPricing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(428, 604)
+        Me.ClientSize = New System.Drawing.Size(467, 676)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.btnAttach)
-        Me.Controls.Add(Me.lblAttachment)
-        Me.Controls.Add(Me.txtAttachment)
-        Me.Controls.Add(Me.lblAuthor)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblHeader)
-        Me.Controls.Add(Me.btnExit)
-        Me.Controls.Add(Me.btnSend)
-        Me.Controls.Add(Me.lblMessage)
-        Me.Controls.Add(Me.txtMessage)
-        Me.Controls.Add(Me.lblTo)
-        Me.Controls.Add(Me.txtTo)
-        Me.Controls.Add(Me.btnPrice)
-        Me.Controls.Add(Me.btnBrowse)
-        Me.Controls.Add(Me.lblFileLocation)
-        Me.Controls.Add(Me.txtFileName)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmMain"
+        Me.Name = "frmPricing"
         Me.Text = "Radian H.A. Limited"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -271,4 +316,7 @@ Partial Class frmMain
     Friend WithEvents txtAttachment As TextBox
     Friend WithEvents btnAttach As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnQuote As Button
 End Class

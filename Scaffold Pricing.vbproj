@@ -15,9 +15,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>Z:\Company Software\Scaffold Pricing\</PublishUrl>
+    <PublishUrl>\\server1\RHATT\Company Software\Scaffold Pricing\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -25,10 +25,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\server1\RHATT\Company Software\Scaffold Pricing\</InstallUrl>
     <UpdateUrl>\\Server1\Company Software\Scaffold Pricing\</UpdateUrl>
     <MinimumRequiredVersion>1.0.0.3</MinimumRequiredVersion>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>8</ApplicationRevision>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -113,11 +114,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="GenerateQuote.Designer.vb">
+      <DependentUpon>GenerateQuote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateQuote.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="MainClass.vb" />
+    <Compile Include="Pricing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pricing.Designer.vb">
+      <DependentUpon>Pricing.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -137,8 +145,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="GenerateQuote.resx">
+      <DependentUpon>GenerateQuote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pricing.resx">
+      <DependentUpon>Pricing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -175,6 +186,15 @@
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
