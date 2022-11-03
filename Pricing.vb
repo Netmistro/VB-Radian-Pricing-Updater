@@ -1,9 +1,4 @@
-﻿Imports System.Net.Mail
-Imports System.Configuration
-Imports System.IO
-Imports System.Net
-
-Public Class frmPricing
+﻿Public Class frmPricing
     Dim MainClass As New MainClass
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -11,8 +6,8 @@ Public Class frmPricing
     End Sub
 
     Private Sub Pricing_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MainClass.CentreForm()
-        MainClass.LoadForm()
+        MainClass.LoadPricingForm()
+        MainClass.CentreForm(Me)
     End Sub
 
     Private Sub BtnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
@@ -27,11 +22,16 @@ Public Class frmPricing
         MainClass.PriceItems()
     End Sub
 
-    Private Sub BtnAttach_Click(sender As Object, e As EventArgs) Handles btnAttach.Click
+    Private Sub BtnAttach_Click(sender As Object, e As EventArgs)
         MainClass.AttachFiles()
     End Sub
 
     Private Sub btnQuote_Click(sender As Object, e As EventArgs) Handles btnQuote.Click
         frmGenerateQuote.ShowDialog()
     End Sub
+
+    Private Sub btnNewFile_Click(sender As Object, e As EventArgs) Handles btnNewFile.Click
+        MainClass.OpenPricedFile()
+    End Sub
+
 End Class

@@ -39,14 +39,14 @@ Partial Class frmPricing
         Me.lblAuthor = New System.Windows.Forms.Label()
         Me.lblAttachment = New System.Windows.Forms.Label()
         Me.txtAttachment = New System.Windows.Forms.TextBox()
-        Me.btnAttach = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnQuote = New System.Windows.Forms.Button()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnNewFile = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtFileName
@@ -64,7 +64,7 @@ Partial Class frmPricing
         Me.lblFileLocation.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFileLocation.Location = New System.Drawing.Point(20, 28)
         Me.lblFileLocation.Name = "lblFileLocation"
-        Me.lblFileLocation.Size = New System.Drawing.Size(82, 16)
+        Me.lblFileLocation.Size = New System.Drawing.Size(81, 16)
         Me.lblFileLocation.TabIndex = 1
         Me.lblFileLocation.Text = "File Location"
         '
@@ -96,7 +96,7 @@ Partial Class frmPricing
         Me.lblTo.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTo.Location = New System.Drawing.Point(20, 19)
         Me.lblTo.Name = "lblTo"
-        Me.lblTo.Size = New System.Drawing.Size(21, 16)
+        Me.lblTo.Size = New System.Drawing.Size(20, 16)
         Me.lblTo.TabIndex = 5
         Me.lblTo.Text = "To"
         '
@@ -115,7 +115,7 @@ Partial Class frmPricing
         Me.lblMessage.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMessage.Location = New System.Drawing.Point(20, 185)
         Me.lblMessage.Name = "lblMessage"
-        Me.lblMessage.Size = New System.Drawing.Size(61, 16)
+        Me.lblMessage.Size = New System.Drawing.Size(60, 16)
         Me.lblMessage.TabIndex = 7
         Me.lblMessage.Text = "Message"
         '
@@ -132,7 +132,7 @@ Partial Class frmPricing
         '
         Me.btnExit.BackColor = System.Drawing.Color.Tomato
         Me.btnExit.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(118, 362)
+        Me.btnExit.Location = New System.Drawing.Point(118, 357)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(90, 35)
         Me.btnExit.TabIndex = 10
@@ -141,9 +141,9 @@ Partial Class frmPricing
         '
         'btnSend
         '
-        Me.btnSend.BackColor = System.Drawing.Color.DarkKhaki
+        Me.btnSend.BackColor = System.Drawing.Color.OliveDrab
         Me.btnSend.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSend.Location = New System.Drawing.Point(20, 362)
+        Me.btnSend.Location = New System.Drawing.Point(20, 357)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(90, 35)
         Me.btnSend.TabIndex = 9
@@ -172,7 +172,7 @@ Partial Class frmPricing
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 14)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Ver. 1.1"
+        Me.Label1.Text = "Ver. 1.3"
         '
         'lblAuthor
         '
@@ -190,7 +190,7 @@ Partial Class frmPricing
         Me.lblAttachment.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAttachment.Location = New System.Drawing.Point(20, 79)
         Me.lblAttachment.Name = "lblAttachment"
-        Me.lblAttachment.Size = New System.Drawing.Size(75, 16)
+        Me.lblAttachment.Size = New System.Drawing.Size(74, 16)
         Me.lblAttachment.TabIndex = 13
         Me.lblAttachment.Text = "Attachment"
         '
@@ -203,31 +203,9 @@ Partial Class frmPricing
         Me.txtAttachment.Size = New System.Drawing.Size(385, 42)
         Me.txtAttachment.TabIndex = 6
         '
-        'btnAttach
-        '
-        Me.btnAttach.BackColor = System.Drawing.Color.DarkKhaki
-        Me.btnAttach.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAttach.Location = New System.Drawing.Point(20, 143)
-        Me.btnAttach.Name = "btnAttach"
-        Me.btnAttach.Size = New System.Drawing.Size(90, 35)
-        Me.btnAttach.TabIndex = 7
-        Me.btnAttach.Text = "&Attach"
-        Me.btnAttach.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Scaffold_Pricing.My.Resources.Resources.radian_logo
-        Me.PictureBox1.Location = New System.Drawing.Point(19, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.PeachPuff
-        Me.GroupBox1.Controls.Add(Me.btnQuote)
         Me.GroupBox1.Controls.Add(Me.txtFileName)
         Me.GroupBox1.Controls.Add(Me.lblFileLocation)
         Me.GroupBox1.Controls.Add(Me.btnBrowse)
@@ -240,15 +218,38 @@ Partial Class frmPricing
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pricing"
         '
+        'btnQuote
+        '
+        Me.btnQuote.BackColor = System.Drawing.Color.DarkOrange
+        Me.btnQuote.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnQuote.Location = New System.Drawing.Point(118, 143)
+        Me.btnQuote.Name = "btnQuote"
+        Me.btnQuote.Size = New System.Drawing.Size(90, 35)
+        Me.btnQuote.TabIndex = 4
+        Me.btnQuote.Text = "&Quote"
+        Me.btnQuote.UseVisualStyleBackColor = False
+        '
+        'btnNewFile
+        '
+        Me.btnNewFile.BackColor = System.Drawing.Color.OliveDrab
+        Me.btnNewFile.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNewFile.Location = New System.Drawing.Point(23, 143)
+        Me.btnNewFile.Name = "btnNewFile"
+        Me.btnNewFile.Size = New System.Drawing.Size(90, 35)
+        Me.btnNewFile.TabIndex = 5
+        Me.btnNewFile.Text = "&Open New"
+        Me.btnNewFile.UseVisualStyleBackColor = False
+        '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.PeachPuff
+        Me.GroupBox2.Controls.Add(Me.btnNewFile)
+        Me.GroupBox2.Controls.Add(Me.btnQuote)
         Me.GroupBox2.Controls.Add(Me.txtTo)
         Me.GroupBox2.Controls.Add(Me.lblTo)
         Me.GroupBox2.Controls.Add(Me.txtMessage)
         Me.GroupBox2.Controls.Add(Me.lblAuthor)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.btnAttach)
         Me.GroupBox2.Controls.Add(Me.lblMessage)
         Me.GroupBox2.Controls.Add(Me.lblAttachment)
         Me.GroupBox2.Controls.Add(Me.btnSend)
@@ -262,16 +263,15 @@ Partial Class frmPricing
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Email"
         '
-        'btnQuote
+        'PictureBox1
         '
-        Me.btnQuote.BackColor = System.Drawing.Color.DarkOrange
-        Me.btnQuote.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnQuote.Location = New System.Drawing.Point(216, 92)
-        Me.btnQuote.Name = "btnQuote"
-        Me.btnQuote.Size = New System.Drawing.Size(90, 35)
-        Me.btnQuote.TabIndex = 4
-        Me.btnQuote.Text = "&Quote"
-        Me.btnQuote.UseVisualStyleBackColor = False
+        Me.PictureBox1.Image = Global.Scaffold_Pricing.My.Resources.Resources.radian_logo
+        Me.PictureBox1.Location = New System.Drawing.Point(19, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(60, 60)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
         '
         'frmPricing
         '
@@ -288,11 +288,11 @@ Partial Class frmPricing
         Me.MinimizeBox = False
         Me.Name = "frmPricing"
         Me.Text = "Radian H.A. Limited"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -314,9 +314,9 @@ Partial Class frmPricing
     Friend WithEvents lblAuthor As Label
     Friend WithEvents lblAttachment As Label
     Friend WithEvents txtAttachment As TextBox
-    Friend WithEvents btnAttach As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents btnQuote As Button
+    Friend WithEvents btnNewFile As Button
 End Class
